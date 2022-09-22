@@ -1,29 +1,10 @@
-struct Smartphone {
-    price: i64,
-    tax: f64,
-    service: i64
-}
-
-impl Smartphone {
-    fn calc(&self) -> i64 {
-        // 暗黙的な型変換は行われない
-        let price = self.price as f64;
-        let tax = self.tax;
-        let service = self.service as f64;
-        return (price * tax + service) as i64;
-    }
-}
-
-impl std::fmt::Display for Smartphone {
-    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
-        return write!(f, "{}, {}, {}", self.price, self.tax, self.service);
-    }
-}
+mod smartphone;
+use smartphone::Smartphone;
 
 fn main() {
-    let linemo3 = Smartphone { price: 900, tax: 1.1, service: 3 };
-    let rakuten20 = Smartphone { price: 1980, tax: 1.1, service: 3 };
-    let rakuten_unlimited = Smartphone { price: 2980, tax: 1.1, service: 3 };
+    let linemo3 = Smartphone::new(900, 1.1, 3);
+    let rakuten20 = Smartphone::new(1980, 1.1, 3);
+    let rakuten_unlimited = Smartphone::new(2980, 1.1, 3);
     println!("{}", linemo3);
     println!("{}", rakuten20);
     println!("{}", rakuten_unlimited);
