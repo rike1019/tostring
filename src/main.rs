@@ -16,7 +16,7 @@ impl Smartphone {
 
 impl std::fmt::Display for Smartphone {
     fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
-        write!(f, "{}, {}, {}", self.price, self.tax, self.service)
+        return write!(f, "{}, {}, {}", self.price, self.tax, self.service);
     }
 }
 
